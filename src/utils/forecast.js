@@ -9,7 +9,8 @@ const forecast=(latitude,longitude,callback)=>{
         }else if(body.error){
             callback('Unable to find weather. Try another search. ', undefined)
         }else{
-            callback(undefined,'The temperature is ' + body.current.temperature + ' and humidity is ' + body.current.humidity)
+            callback(undefined,body.current.weather_descriptions[0] +"- It is currently " + body.current.temperature + 
+            " degress out. It feels like " + body.current.feelslike + " degress out. The humedity is " + body.current.humidity + "%.")
         }
     })
 }
